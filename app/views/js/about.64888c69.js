@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkedu_uploader_frontend"]=self["webpackChunkedu_uploader_frontend"]||[]).push([[443],{3571:function(n,u,e){e.r(u),e.d(u,{default:function(){return l}});var r=e(3396);const a={class:"about"},t=(0,r._)("h1",null,"This is an about page by julian",-1),o=[t];function s(n,u){return(0,r.wg)(),(0,r.iD)("div",a,o)}var d=e(89);const c={},i=(0,d.Z)(c,[["render",s]]);var l=i}}]);
-//# sourceMappingURL=about.018679c9.js.map
+//# sourceMappingURL=about.64888c69.js.map
