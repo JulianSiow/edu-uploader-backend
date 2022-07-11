@@ -6,15 +6,35 @@ exports.upload = async (req, res) => {
         message: "File must be included",
       });
     } else {
+      const fs = require("fs");
       let file = req.files.file;
-      const path = `./app/files/${file.name}`;
+      let path = `./app/files/${file.name}`;
 
-      file.mv(path);
+      fs.readdir("./app/files", (err, files) => {
+        if (files.includes(file.name)) {
+          let copyNum = 0;
+          let newName = file.name;
+          while (files.includes(newName)) {
+            copyNum++;
+            newName = file.name + `(${copyNum})`;
+            path = `./app/files/${newName}`;
+          }
+          file.mv(path);
 
-      res.send({
-        status: 200,
-        message: "upload success",
-        path,
+          res.send({
+            status: 200,
+            message: `upload success as ${newName}`,
+            path,
+          });
+        } else {
+          file.mv(path);
+
+          res.send({
+            status: 200,
+            message: "upload success",
+            path,
+          });
+        }
       });
     }
   } catch (err) {
