@@ -51,14 +51,9 @@ exports.getFiles = (req, res) => {
     const fs = require("fs");
 
     fs.readdir("./app/files", (err, files) => {
-      const fileNames = [];
-      files.forEach((file) => {
-        fileNames.push(file);
-      });
-
       res.send({
         status: 200,
-        data: fileNames,
+        data: files,
       });
     });
   } catch (err) {
